@@ -12,6 +12,200 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+   <!-- Navigation Bar -->
+    <header class="navbar" id="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <a href="/" class="logo">NEXORA</a>
+                
+                <nav class="nav-menu" id="navMenu">
+                    <ul class="nav-list">
+                        <li><a href="/" class="nav-link ">Home</a></li>
+                        <li><a href="#products" class="nav-link">Products</a></li>
+                        <li><a href="#categories" class="nav-link">Categories</a></li>
+                        <li><a href="#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="nav-icons">
+                    <div class="icon-wrapper cart-icon" id="cartIcon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                        
+                        <!-- Mini Cart Dropdown -->
+                        <div class="mini-cart" id="miniCart">
+                            <div class="mini-cart-header">
+                                <h3>Your Cart</h3>
+                                <button class="close-cart" id="closeCart" aria-label="Close cart">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            <div class="mini-cart-items" id="miniCartItems">
+                                <!-- Cart items will be added here dynamically -->
+                                <div class="empty-cart-message" id="emptyCartMessage">Your cart is empty</div>
+                            </div>
+                            <div class="mini-cart-footer">
+                                <div class="cart-total">
+                                    <span>Total:</span>
+                                    <span id="cartTotal">$0.00</span>
+                                </div>
+                                <a href="/checkout" class="btn btn-primary btn-sm">Checkout</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="icon-wrapper" id="profileIcon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Auth Modal -->
+    <div class="auth-modal" id="authModal">
+        <div class="auth-modal-content">
+            <button class="close-auth" id="closeAuth" aria-label="Close authentication">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="auth-tabs">
+                <button class="auth-tab active" id="loginTab">Login</button>
+                <button class="auth-tab" id="signupTab">Sign Up</button>
+            </div>
+            
+            <!-- Login Form -->
+            <form id="loginForm" class="auth-form active">
+                <h2>Welcome Back</h2>
+                <p class="auth-subtitle">Login to access your account</p>
+                
+                <div class="form-field">
+                    <label for="loginEmail">Email</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="loginEmail" placeholder="Your email" required>
+                    </div>
+                </div>
+                
+                <div class="form-field">
+                    <label for="loginPassword">Password</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="loginPassword" placeholder="Your password" required>
+                        <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="form-options">
+                    <div class="remember-me">
+                        <input type="checkbox" id="rememberMe">
+                        <label for="rememberMe">Remember me</label>
+                    </div>
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                </div>
+                
+                <div id="loginMessage" class="auth-message"></div>
+                
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+                
+                <div class="auth-divider">
+                    <span>or continue with</span>
+                </div>
+                
+                <div class="social-auth">
+                    <button type="button" class="social-auth-btn google">
+                        <i class="fab fa-google"></i>
+                        <span>Google</span>
+                    </button>
+                    <button type="button" class="social-auth-btn facebook">
+                        <i class="fab fa-facebook-f"></i>
+                        <span>Facebook</span>
+                    </button>
+                </div>
+            </form>
+            
+            <!-- Signup Form -->
+            <form id="signupForm" class="auth-form">
+                <h2>Create Account</h2>
+                <p class="auth-subtitle">Sign up to get started with NEXORA</p>
+                
+                <div class="form-field">
+                    <label for="signupName">Full Name</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="signupName" placeholder="Your full name" required>
+                    </div>
+                </div>
+                
+                <div class="form-field">
+                    <label for="signupEmail">Email</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="signupEmail" placeholder="Your email" required>
+                    </div>
+                </div>
+                
+                <div class="form-field">
+                    <label for="signupPassword">Password</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="signupPassword" placeholder="Create password" required>
+                        <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="password-strength" id="passwordStrength">
+                        <div class="strength-meter">
+                            <div class="strength-segment"></div>
+                            <div class="strength-segment"></div>
+                            <div class="strength-segment"></div>
+                            <div class="strength-segment"></div>
+                        </div>
+                        <span class="strength-text">Password strength</span>
+                    </div>
+                </div>
+                
+                <div class="form-field">
+                    <label for="signupConfirmPassword">Confirm Password</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="signupConfirmPassword" placeholder="Confirm password" required>
+                    </div>
+                </div>
+                
+                <div class="terms-checkbox">
+                    <input type="checkbox" id="agreeTerms" required>
+                    <label for="agreeTerms">I agree to the <a href="/terms">Terms of Service</a> and <a href="/privacy">Privacy Policy</a></label>
+                </div>
+                
+                <div id="signupMessage" class="auth-message"></div>
+                
+                <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+                
+                <div class="auth-divider">
+                    <span>or sign up with</span>
+                </div>
+                
+                <div class="social-auth">
+                    <button type="button" class="social-auth-btn google">
+                        <i class="fab fa-google"></i>
+                        <span>Google</span>
+                    </button>
+                    <button type="button" class="social-auth-btn facebook">
+                        <i class="fab fa-facebook-f"></i>
+                        <span>Facebook</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Auth Modal Overlay -->
+    <div class="auth-overlay" id="authOverlay"></div>
 
   </body>
 </html>
