@@ -32,6 +32,50 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+	// Newsletter form submission
+    const newsletterForm = document.getElementById('newsletterForm');
+    const formMessage = document.getElementById('formMessage');
+
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const emailInput = document.getElementById('emailInput');
+            const email = emailInput.value.trim();
+
+            if (email === '') {
+                showFormMessage('Please enter your email address', 'error');
+                return;
+            }
+
+            if (!isValidEmail(email)) {
+                showFormMessage('Please enter a valid email address', 'error');
+                return;
+            }
+
+            // Simulate form submission
+            showFormMessage('Thank you for subscribing!', 'success');
+            emailInput.value = '';
+
+            // Reset message after 3 seconds
+            setTimeout(() => {
+                formMessage.textContent = '';
+                formMessage.className = 'form-message';
+            }, 3000);
+        });
+    }
+
+    // Email validation function
+    function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
+    // Show form message
+    function showFormMessage(message, type) {
+        formMessage.textContent = message;
+        formMessage.className = 'form-message ' + type;
+    }
 
 
 	// Cart functionality
