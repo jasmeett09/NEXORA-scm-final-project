@@ -1031,3 +1031,60 @@ h1, h2, h3, h4, h5, h6 {
     padding: 32px;
     position: relative;
 }
+
+.close-auth {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    background-color: #F1F5F9;
+    color: #64748B;
+    z-index: 2;
+}
+
+.close-auth:hover {
+    background-color: #E2E8F0;
+}
+
+.auth-tabs {
+    display: flex;
+    margin-bottom: 28px;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.auth-tab {
+    flex: 1;
+    padding: 16px;
+    text-align: center;
+    background: none;
+    border: none;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #64748B;
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+}
+
+.auth-tab.active {
+    color: #7C3AED;
+}
+
+.auth-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #7C3AED, #06B6D4);
+}
