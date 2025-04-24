@@ -323,3 +323,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+	// Implement AOS (Animate on Scroll) functionality
+    const animatedElements = document.querySelectorAll('[data-aos]');
