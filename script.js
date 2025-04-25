@@ -326,3 +326,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	// Implement AOS (Animate on Scroll) functionality
     const animatedElements = document.querySelectorAll('[data-aos]');
+
+       // Simple intersection observer for animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('aos-animate');
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
