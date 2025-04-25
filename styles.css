@@ -1347,3 +1347,33 @@ h1, h2, h3, h4, h5, h6 {
         flex-direction: column;
     }
 }
+
+/* About Section */
+.about {
+    padding: 100px 0;
+    background-color: #FAFAFA;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.about-image {
+    flex: 1;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.about-image:hover img {
+    transform: scale(1.03);
+}
