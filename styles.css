@@ -1168,3 +1168,109 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     margin-bottom: 24px;
 }
+
+.remember-me {
+    display: flex;
+    align-items: center;
+}
+
+.remember-me input {
+    margin-right: 8px;
+}
+
+.forgot-password {
+    color: #7C3AED;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.btn-block {
+    width: 100%;
+    margin-bottom: 24px;
+    padding: 14px;
+    font-size: 1rem;
+    border-radius: 8px;
+}
+
+.auth-divider {
+    position: relative;
+    text-align: center;
+    margin: 24px 0;
+}
+
+.auth-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #E2E8F0;
+}
+
+.auth-divider span {
+    position: relative;
+    background-color: white;
+    padding: 0 16px;
+    color: #64748B;
+    font-size: 0.875rem;
+}
+
+.social-auth {
+    display: flex;
+    gap: 16px;
+}
+
+.social-auth-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #E2E8F0;
+    background-color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    color: #1E293B;
+}
+
+.social-auth-btn:hover {
+    background-color: #F8FAFC;
+    border-color: #CBD5E1;
+}
+
+.social-auth-btn.google i {
+    color: #DB4437;
+}
+
+.social-auth-btn.facebook i {
+    color: #4267B2;
+}
+
+.terms-checkbox {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 24px;
+}
+
+.terms-checkbox input {
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.terms-checkbox a {
+    color: #7C3AED;
+    transition: var(--transition);
+}
+
+.terms-checkbox a:hover {
+    text-decoration: underline;
+}
