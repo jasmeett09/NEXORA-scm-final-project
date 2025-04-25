@@ -1274,3 +1274,76 @@ h1, h2, h3, h4, h5, h6 {
 .terms-checkbox a:hover {
     text-decoration: underline;
 }
+
+.auth-message {
+    margin-bottom: 16px;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    display: none;
+}
+
+.auth-message.error {
+    display: block;
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #EF4444;
+}
+
+.auth-message.success {
+    display: block;
+    background-color: rgba(16, 185, 129, 0.1);
+    color: #10B981;
+}
+
+.password-strength {
+    margin-top: 8px;
+}
+
+.strength-meter {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 4px;
+}
+
+.strength-segment {
+    height: 4px;
+    flex: 1;
+    background-color: #E2E8F0;
+    border-radius: 2px;
+    transition: var(--transition);
+}
+
+.strength-segment.weak {
+    background-color: #EF4444;
+}
+
+.strength-segment.medium {
+    background-color: #FBBF24;
+}
+
+.strength-segment.strong {
+    background-color: #10B981;
+}
+
+.strength-text {
+    font-size: 0.75rem;
+    color: #64748B;
+    text-align: right;
+    display: block;
+}
+
+/* Responsive styles for auth modal */
+@media (max-width: 576px) {
+    .auth-modal {
+        width: 90%;
+    }
+    
+    .auth-modal-content {
+        padding: 24px 16px;
+    }
+    
+    .social-auth {
+        flex-direction: column;
+    }
+}
