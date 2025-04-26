@@ -350,3 +350,73 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });			  
+// Password strength checker
+    if (passwordInput) {
+        passwordInput.addEventListener('input', checkPasswordStrength);
+    }
+    
+    function checkPasswordStrength() {
+        const password = passwordInput.value;
+        let strength = 0;
+        
+        // Reset strength indicators
+        resetPasswordStrength();
+        
+        if (password.length === 0) {
+            return;
+        }
+        
+        // Check password length
+        if (password.length >= 8) {
+            strength += 1;
+        }
+        
+        // Check for lowercase and uppercase letters
+        if (/[a-z]/.test(password) && /[A-Z]/.test(password)) {
+            strength += 1;
+        }
+        
+        // Check for numbers
+        if (/\d/.test(password)) {
+            strength += 1;
+        }
+        
+        // Check for special characters
+        if (/[^a-zA-Z0-9]/.test(password)) {
+            strength += 1;
+        }
+        
+        // Update strength meter
+        for (let i = 0; i < strength; i++) {
+            if (strength === 1) {
+                strengthSegments[i].classList.add('weak');
+            } else if (strength === 2 || strength === 3) {
+                strengthSegments[i].classList.add('medium');
+            } else if (strength === 4) {
+                strengthSegments[i].classList.add('strong');
+            }
+        }
+        
+        // Update strength text - FIXED VERSION
+        if (strength === 1) {
+            strengthText.textContent = 'Weak password';
+            strengthText.style.color = '#EF4444'; // Danger color
+        } else if (strength === 2) {
+            strengthText.textContent = 'Fair password';
+            strengthText.style.color = '#FBBF24'; // Warning color
+        } else if (strength === 3) {
+            strengthText.textContent = 'Good password';
+            strengthText.style.color = '#FBBF24'; // Warning color
+        } else if (strength === 4) {
+            strengthText.textContent = 'Strong password';
+            strengthText.style.color = '#10B981'; // Success color
+        }
+    }
+    
+    function resetPasswordStrength() {
+        strengthSegments.forEach(segment => {
+            segment.classList.remove('weak', 'medium', 'strong');
+        });
+        strengthText.textContent = 'Password strength';
+        strengthText.style.color = '';
+    }
