@@ -11,8 +11,201 @@
 </style>
 </head>
 <body>
-    
-    
+    header class="navbar" id="navbar">
+    <div class="container">
+        <div class="navbar-content">
+            <a href="/" class="logo">NEXORA</a>
+            
+            <nav class="nav-menu" id="navMenu">
+              <ul class="nav-list">
+                  <li><a href="/index.html" class="nav-link ">Home</a></li>
+                  <li><a href="/smartphones_list/smartphones.html" class="nav-link">Smartphones</a></li>
+                  <li><a href="/" class="nav-link">Laptop</a></li>
+                  <li><a href="/smartwatch_list/smartwatch.html" class="nav-link">Smartwatches</a></li>
+                  <li><a href="/headphones_list/headphones.html" class="nav-link">Headphones</a></li>
+              </ul>
+          </nav>
+            
+            <div class="nav-icons">
+                <div class="icon-wrapper cart-icon" id="cartIcon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                    
+                    <!-- Mini Cart Dropdown -->
+                    <div class="mini-cart" id="miniCart">
+                        <div class="mini-cart-header">
+                            <h3>Your Cart</h3>
+                            <button class="close-cart" id="closeCart" aria-label="Close cart">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="mini-cart-items" id="miniCartItems">
+                            <!-- Cart items will be added here dynamically -->
+                            <div class="empty-cart-message" id="emptyCartMessage">Your cart is empty</div>
+                        </div>
+                        <div class="mini-cart-footer">
+                            <div class="cart-total">
+                                <span>Total:</span>
+                                <span id="cartTotal">$0.00</span>
+                            </div>
+                            <a href="/checkout" class="btn btn-primary btn-sm">Checkout</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="icon-wrapper">
+                    <i class="fas fa-user"></i>
+                </div>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
 
+  <div class="product-container">
+    <!-- Filter and Sort Section -->
+    <div class="filter-sort-container">
+      <div class="filter-section">
+        <span class="filter-label">Filter by:</span>
+        <div class="filter-price">
+          <span>Price:</span>
+          <input type="number" id="min-price" class="price-input" placeholder="Min" min="0">
+          <span>to</span>
+          <input type="number" id="max-price" class="price-input" placeholder="Max" min="0">
+          <button id="apply-filter" class="filter-btn">Apply</button>
+          <button id="reset-filter" class="reset-btn">Reset</button>
+        </div>
+      </div>
+      <div class="sort-section">
+        <span class="sort-label">Sort by:</span>
+        <select id="sort-select">
+          <option value="default">Default</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+          <option value="rating">Rating: High to Low</option>
+          <option value="discount">Discount: High to Low</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="no-results" class="no-results">
+      No products match your filter criteria. Please try different filters.
+    </div>
+
+    <div id="products-list">
+      <!-- Product Card 1 -->
+      <div class="product-card" data-price="89990" data-rating="4.7" data-discount="25">
+        <div class="product-image">
+          <img src="/pictures/l1.png" alt="MacBook Pro">
+        </div>
+        <div class="product-info">
+          <h2>Apple MacBook Pro 14" (M2 Pro, 16GB, 512GB) - Space Gray</h2>
+          <div class="rating">
+            <span>4.7</span>
+            <span class="stars">★★★★★</span>
+            <span class="votes">(2.5K)</span>
+          </div>
+          <p class="sales">3K+ bought in past month</p>
+          <div class="price">
+            ₹89,990 <span class="mrp">M.R.P: <s>₹119,990</s></span>
+            <span class="discount">(25% off)</span>
+          </div>
+          <p class="cashback">Up to 5% back with Amazon Pay ICICI...</p>
+          <p class="delivery"><strong>FREE delivery</strong> Fri, 18 Apr</p>
+          <button>Add to cart</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-price="72990" data-rating="4.6" data-discount="20">
+        <div class="product-image">
+          <img src="/pictures/l2.png" alt="Dell XPS">
+        </div>
+        <div class="product-info">
+          <h2>Dell XPS 13 (Intel i7, 16GB, 512GB SSD) - Platinum Silver</h2>
+          <div class="rating">
+            <span>4.6</span>
+            <span class="stars">★★★★★</span>
+            <span class="votes">(1.8K)</span>
+          </div>
+          <p class="sales">2K+ bought in past month</p>
+          <div class="price">
+            ₹72,990 <span class="mrp">M.R.P: <s>₹91,990</s></span>
+            <span class="discount">(20% off)</span>
+          </div>
+          <p class="cashback">Up to 5% back with Amazon Pay ICICI...</p>
+          <p class="delivery"><strong>FREE delivery</strong> Fri, 18 Apr</p>
+          <button>Add to cart</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-price="65990" data-rating="4.5" data-discount="15">
+        <div class="product-image">
+          <img src="/pictures/l3.png" alt="HP Spectre">
+        </div>
+        <div class="product-info">
+          <h2>HP Spectre x360 (Intel i7, 16GB, 1TB SSD) - Nightfall Black</h2>
+          <div class="rating">
+            <span>4.5</span>
+            <span class="stars">★★★★★</span>
+            <span class="votes">(1.5K)</span>
+          </div>
+          <p class="sales">1.8K+ bought in past month</p>
+          <div class="price">
+            ₹65,990 <span class="mrp">M.R.P: <s>₹77,990</s></span>
+            <span class="discount">(15% off)</span>
+          </div>
+          
+          <p class="cashback">Up to 5% back with Amazon Pay ICICI...</p>
+          <p class="delivery"><strong>FREE delivery</strong> Fri, 18 Apr</p>
+          <button>Add to cart</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-price="54990" data-rating="4.4" data-discount="22">
+        <div class="product-image">
+          <img src="/pictures/l4.png" alt="Lenovo ThinkPad">
+        </div>
+        <div class="product-info">
+          <h2>Lenovo ThinkPad X1 Carbon (Intel i5, 16GB, 512GB SSD) - Black</h2>
+          <div class="rating">
+            <span>4.4</span>
+            <span class="stars">★★★★☆</span>
+            <span class="votes">(1.2K)</span>
+          </div>
+          <p class="sales">1.5K+ bought in past month</p>
+          <div class="price">
+            ₹54,990 <span class="mrp">M.R.P: <s>₹70,990</s></span>
+            <span class="discount">(22% off)</span>
+          </div>
+          <p class="cashback">Up to 5% back with Amazon Pay ICICI...</p>
+          <p class="delivery"><strong>FREE delivery</strong> Fri, 18 Apr</p>
+          <button>Add to cart</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-price="42990" data-rating="4.3" data-discount="18">
+        <div class="product-image">
+          <img src="/pictures/l5.png" alt="ASUS ROG">
+        </div>
+        <div class="product-info">
+          <h2>ASUS ROG Strix G15 (AMD Ryzen 7, 16GB, 1TB SSD, RTX 3060) - Eclipse Gray</h2>
+          <div class="rating">
+            <span>4.3</span>
+            <span class="stars">★★★★☆</span>
+            <span class="votes">(2.2K)</span>
+          </div>
+          <p class="sales">2.8K+ bought in past month</p>
+          <div class="price">
+            ₹42,990 <span class="mrp">M.R.P: <s>₹52,990</s></span>
+            <span class="discount">(18% off)</span>
+          </div>
+          <p class="cashback">Up to 5% back with Amazon Pay ICICI...</p>
+          <p class="delivery"><strong>FREE delivery</strong> Fri, 18 Apr</p>
+          <button>Add to cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
