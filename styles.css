@@ -1445,7 +1445,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.95rem;
 }
 
-<<<<<<< HEAD
+
 /* Chatbot Styles */
 .chatbot-container {
     position: fixed;
@@ -1651,7 +1651,8 @@ h1, h2, h3, h4, h5, h6 {
 [data-aos="fade-up"].aos-animate {
     opacity: 1;
     transform: translateY(0);
-=======
+}
+
 /* Animations */
 .animate-fade-in {
     opacity: 0;
@@ -1667,5 +1668,4 @@ h1, h2, h3, h4, h5, h6 {
         opacity: 1;
         transform: translateY(0);
     }
->>>>>>> feature-css
 }
