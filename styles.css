@@ -1639,3 +1639,15 @@ h1, h2, h3, h4, h5, h6 {
     background-color: rgba(124, 58, 237, 0.1);
     border-color: var(--primary-color);
 } 
+
+/* AOS Animation Classes */
+[data-aos="fade-up"] {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+[data-aos="fade-up"].aos-animate {
+    opacity: 1;
+    transform: translateY(0);
+}
