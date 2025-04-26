@@ -11,7 +11,246 @@
 </style>
 </head>
 <body>
-    
+    <header class="navbar" id="navbar">
+    <div class="container">
+        <div class="navbar-content">
+            <a href="/" class="logo">NEXORA</a>
+            
+            <nav class="nav-menu" id="navMenu">
+              <ul class="nav-list">
+                  <li><a href="/index.html" class="nav-link ">Home</a></li>
+                  <li><a href="/" class="nav-link">Smartphones</a></li>
+                  <li><a href="/laptop_list/laptop.html" class="nav-link">Laptop</a></li>
+                  <li><a href="/smartwatch_list/smartwatch.html" class="nav-link">Smartwatches</a></li>
+                  <li><a href="/headphones_list/headphones.html" class="nav-link">Headphones</a></li>
+              </ul>
+          </nav>
+            
+            <div class="nav-icons">
+                <div class="icon-wrapper cart-icon" id="cartIcon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                    
+                    <!-- Mini Cart Dropdown -->
+                    <div class="mini-cart" id="miniCart">
+                        <div class="mini-cart-header">
+                            <h3>Your Cart</h3>
+                            <button class="close-cart" id="closeCart" aria-label="Close cart">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="mini-cart-items" id="miniCartItems">
+                            <!-- Cart items will be added here dynamically -->
+                            <div class="empty-cart-message" id="emptyCartMessage">Your cart is empty</div>
+                        </div>
+                        <div class="mini-cart-footer">
+                            <div class="cart-total">
+                                <span>Total:</span>
+                                <span id="cartTotal">$0.00</span>
+                            </div>
+                            <a href="/checkout" class="btn btn-primary btn-sm">Checkout</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="icon-wrapper">
+                    <i class="fas fa-user"></i>
+                </div>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+
+  <div class="product-container">
+    <!-- Filter and Sort Section -->
+    <div class="filter-sort-container">
+      <div class="filter-section">
+        <span class="filter-label">Filter by:</span>
+        <div class="filter-price">
+          <span>Price:</span>
+          <input type="number" id="min-price" class="price-input" placeholder="Min" min="0">
+          <span>to</span>
+          <input type="number" id="max-price" class="price-input" placeholder="Max" min="0">
+          <button id="apply-filter" class="filter-btn">Apply</button>
+          <button id="reset-filter" class="reset-btn">Reset</button>
+        </div>
+      </div>
+      <div class="sort-section">
+        <span class="sort-label">Sort by:</span>
+        <select id="sort-select">
+          <option value="default">Default</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+          <option value="rating">Rating: High to Low</option>
+          <option value="discount">Discount: High to Low</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="no-results" class="no-results">
+      No products match your filter criteria. Please try different filters.
+    </div>
+
+    <div id="products-list">
+      <!-- Product Card 1 -->
+      <div class="product-card" data-price="61390" data-rating="4.5" data-discount="23">
+        <div class="product-image">
+          <img src="/pictures/sp1.png" alt="iPhone 15">
+        </div>
+        <div class="product-info">
+          <h2>Apple iPhone 15 (128 GB) - Black</h2>
+          <div class="rating">
+            <span>4.5</span>
+            <span class="stars">★★★★★</span>
+            <span class="votes">(3.3K)</span>
+          </div>
+          <p class="sales">5K+ bought in past month</p>
+          <div class="price">
+            ₹61,390 <span class="mrp">M.R.P: <s>₹79,900</s></span>
+            <span class="discount">(23% off)</span>
+          </div>
+          <p class="cashback">Up to 5% back with Amazon Pay ICICI...</p>
+          <p class="delivery"><strong>FREE delivery</strong> Fri, 18 Apr</p>
+          <button>Add to cart</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-price="49999" data-rating="4.6" data-discount="20">
+        <div class="product-image">
+          <img src="/pictures/sp2.png" alt="Samsung Galaxy S23">
+        </div>
+        <div class="product-info">
+          <h2>Samsung Galaxy S23 (256 GB) - Phantom Black</h2>
+          <div class="rating">
+            <span>4.6</span>
+            <span class="stars">★★★★★</span>
+            <span class="votes">(2.8K)</span>
+          </div>
+          <p class="sales">4K+ bought in past month</p>
+          <div class="price">
+            ₹49,999 <span class="mrp">M.R.P: <s>₹62,499</s></span>
+            <span class="discount">(20% off)</span>
+          </div>
+          <p class="cashback">Up to 5% back with Amazon Pay ICICI...</p>
+          <p class="delivery"><strong>FREE delivery</strong> Fri, 18 Apr</p>
+          <button>Add to cart</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-price="32999" data-rating="4.4" data-discount="15">
+        <div class="product-image">
+          <img src="/pictures/sp3.png" alt="Google Pixel 7">
+        </div>
+        <div class="product-info">
+          <h2>Google Pixel 7 (128 GB) - Obsidian</h2>
+          <div class="rating">
+            <span>4.4</span>
+            <span class="stars">★★★★☆</span>
+            <span class="votes">(1.9K)</span>
+          </div>
+          <p class="sales">3K+ bought in past month</p>
+          <div class="price">
+            ₹32,999 <span class="mrp">M.R.P: <s>₹38,999</s></span>
+            <span class="discount">(15% off)</span>
+          </div>
+          <p class="cashback">Up to 5% back with Amazon Pay ICICI...</p>
+          <p class="delivery"><strong>FREE delivery</strong> Fri, 18 Apr</p>
+          <button>Add to cart</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-price="29999" data-rating="4.3" data-discount="25">
+        <div class="product-image">
+          <img src="/pictures/sp14.png" alt="OnePlus 11R">
+        </div>
+        <div class="product-info">
+          <h2>OnePlus 11R (256 GB) - Galactic Silver</h2>
+          <div class="rating">
+            <span>4.3</span>
+            <span class="stars">★★★★☆</span>
+            <span class="votes">(2.2K)</span>
+          </div>
+          <p class="sales">3.5K+ bought in past month</p>
+          <div class="price">
+            ₹29,999 <span class="mrp">M.R.P: <s>₹39,999</s></span>
+            <span class="discount">(25% off)</span>
+          </div>
+          <p class="cashback">Up to 5% back with Amazon Pay ICICI...</p>
+          <p class="delivery"><strong>FREE delivery</strong> Fri, 18 Apr</p>
+          <button>Add to cart</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-price="18999" data-rating="4.2" data-discount="30">
+        <div class="product-image">
+          <img src="/pictures/sp5.png" alt="Xiaomi 13">
+        </div>
+        <div class="product-info">
+          <h2>Xiaomi 13 (128 GB) - Alpine Blue</h2>
+          <div class="rating">
+            <span>4.2</span>
+            <span class="stars">★★★★☆</span>
+            <span class="votes">(1.7K)</span>
+          </div>
+          <p class="sales">2.5K+ bought in past month</p>
+          <div class="price">
+            ₹18,999 <span class="mrp">M.R.P: <s>₹27,999</s></span>
+            <span class="discount">(30% off)</span>
+          </div>
+          <p class="cashback">Up to 5% back with Amazon Pay ICICI...</p>
+          <p class="delivery"><strong>FREE delivery</strong> Fri, 18 Apr</p>
+          <button>Add to cart</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-price="14999" data-rating="4.0" data-discount="10">
+        <div class="product-image">
+          <img src="/pictures/sp6.png" alt="Realme GT">
+        </div>
+        <div class="product-info">
+          <h2>Realme GT (128 GB) - Racing Yellow</h2>
+          <div class="rating">
+            <span>4.0</span>
+            <span class="stars">★★★★☆</span>
+            <span class="votes">(1.2K)</span>
+          </div>
+          <p class="sales">2K+ bought in past month</p>
+          <div class="price">
+            ₹14,999 <span class="mrp">M.R.P: <s>₹16,999</s></span>
+            <span class="discount">(10% off)</span>
+          </div>
+          <p class="cashback">Up to 5% back with Amazon Pay ICICI...</p>
+          <p class="delivery"><strong>FREE delivery</strong> Fri, 18 Apr</p>
+          <button>Add to cart</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-price="12999" data-rating="3.9" data-discount="18">
+        <div class="product-image">
+          <img src="/pictures/sp7.png" alt="Motorola Edge">
+        </div>
+        <div class="product-info">
+          <h2>Motorola Edge (64 GB) - Midnight Blue</h2>
+          <div class="rating">
+            <span>3.9</span>
+            <span class="stars">★★★★☆</span>
+            <span class="votes">(950)</span>
+          </div>
+          <p class="sales">1.5K+ bought in past month</p>
+          <div class="price">
+            ₹12,999 <span class="mrp">M.R.P: <s>₹15,999</s></span>
+            <span class="discount">(18% off)</span>
+          </div>
+          <p class="cashback">Up to 5% back with Amazon Pay ICICI...</p>
+          <p class="delivery"><strong>FREE delivery</strong> Fri, 18 Apr</p>
+          <button>Add to cart</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
     
 
 </body>
