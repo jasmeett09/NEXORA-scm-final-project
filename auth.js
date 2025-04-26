@@ -44,3 +44,33 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // Close auth modal
+    if (closeAuth) {
+        closeAuth.addEventListener('click', closeAuthModal);
+    }
+    
+    // Close auth modal when clicking on overlay
+    if (authOverlay) {
+        authOverlay.addEventListener('click', closeAuthModal);
+    }
+    
+    // Close auth modal function
+    function closeAuthModal() {
+        authModal.classList.remove('active');
+        authOverlay.style.display = 'none';
+        document.body.style.overflow = ''; // Re-enable scrolling
+        
+        // Reset forms
+        loginForm.reset();
+        signupForm.reset();
+        
+        // Clear messages
+        loginMessage.textContent = '';
+        loginMessage.className = 'auth-message';
+        signupMessage.textContent = '';
+        signupMessage.className = 'auth-message';
+        
+        // Reset password strength
+        resetPasswordStrength();
+    }
