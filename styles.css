@@ -1445,6 +1445,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.95rem;
 }
 
+
 /* Chatbot Styles */
 .chatbot-container {
     position: fixed;
@@ -1784,5 +1785,22 @@ h1, h2, h3, h4, h5, h6 {
     
     .section-header {
         margin-bottom: 40px;
+  }
+  
+/* Animations */
+.animate-fade-in {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+      
     }
 }
