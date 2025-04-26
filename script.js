@@ -338,3 +338,15 @@ document.addEventListener('DOMContentLoaded', function() {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     });
+
+// Observe all elements with data-aos attribute
+    animatedElements.forEach(element => {
+        observer.observe(element);
+        
+        // Add delay if specified
+        const delay = element.getAttribute('data-aos-delay');
+        if (delay) {
+            element.style.transitionDelay = `${delay}ms`;
+        }
+    });
+});			  
