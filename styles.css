@@ -1786,7 +1786,36 @@ h1, h2, h3, h4, h5, h6 {
     .section-header {
         margin-bottom: 40px;
   }
-  
+  @media (max-width: 992px) {
+    .about-content {
+        flex-direction: column;
+    }
+    
+    .about-image, .about-text {
+        width: 100%;
+    }
+    
+    .chatbot-box {
+        width: 320px;
+    }
+}
+
+@media (max-width: 576px) {
+    .chatbot-box {
+        width: 280px;
+        right: -15px;
+    }
+    
+    .chatbot-toggle {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .chatbot-messages {
+        height: 300px;
+    }
+}
+    
 /* Animations */
 .animate-fade-in {
     opacity: 0;
