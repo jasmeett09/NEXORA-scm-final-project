@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  lint:
+    name: Lint Code
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Install ESLint
+        run: sudo npm install -g eslint
+
+      - name: Install Stylelint
+        run: sudo npm install -g stylelint stylelint-config-standard
+
+      - name: Run ESLint (JavaScript)
+        run: eslint . || echo "Linting issues found in JS"
+      
+      - name: Run Stylelint (CSS)
+        run: stylelint '**/*.css' || echo "CSS linting issues found"
+
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    needs: lint
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Testing Tools
+        run: sudo apt-get install -y curl jq
+
+      - name: Run Tests (placeholder)
+        run: echo "Running tests... (add real tests here)"
