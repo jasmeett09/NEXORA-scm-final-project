@@ -1364,19 +1364,16 @@ h1, h2, h3, h4, h5, h6 {
     flex: 1;
     border-radius: var(--border-radius);
     overflow: hidden;
-    box-shadow: var(--box-shadow);
 }
 
 .about-image img {
     width: 100%;
     height: auto;
     display: block;
-    transition: transform 0.5s ease;
+    
 }
 
-.about-image:hover img {
-    transform: scale(1.03);
-}
+
 
 .about-text {
     flex: 1;
