@@ -252,6 +252,126 @@
     </div>
   </div>
     
-
+<script src="script.js"></script>
+  <script>
+    // Sorting and filtering functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const productsList = document.getElementById('products-list');
+      const sortSelect = document.getElementById('sort-select');
+      const minPriceInput = document.getElementById('min-price');
+      const maxPriceInput = document.getElementById('max-price');
+      const applyFilterBtn = document.getElementById('apply-filter');
+      const resetFilterBtn = document.getElementById('reset-filter');
+      const noResultsDiv = document.getElementById('no-results');
+      
+      // Get all product cards
+      const productCards = Array.from(document.querySelectorAll('.product-card'));
+      
+      // Store original order of products
+      const originalOrder = [...productCards];
+      
+      // Function to extract price from product card
+      function getPrice(card) {
+        return parseInt(card.getAttribute('data-price'));
+      }
+      
+      // Function to extract rating from product card
+      function getRating(card) {
+        return parseFloat(card.getAttribute('data-rating'));
+      }
+      
+      // Function to extract discount from product card
+      function getDiscount(card) {
+        return parseInt(card.getAttribute('data-discount'));
+      }
+      
+      // Function to sort products
+      function sortProducts(sortBy) {
+        const cards = Array.from(productsList.querySelectorAll('.product-card'));
+        
+        cards.sort((a, b) => {
+          switch(sortBy) {
+            case 'price-low':
+              return getPrice(a) - getPrice(b);
+            case 'price-high':
+              return getPrice(b) - getPrice(a);
+            case 'rating':
+              return getRating(b) - getRating(a);
+            case 'discount':
+              return getDiscount(b) - getDiscount(a);
+            default:
+              // Default sorting (original order)
+              return originalOrder.indexOf(a) - originalOrder.indexOf(b);
+          }
+        });
+        
+        // Remove all current cards
+        cards.forEach(card => card.remove());
+        
+        // Append sorted cards
+        cards.forEach(card => productsList.appendChild(card));
+      }
+      
+      // Function to filter products by price
+      function filterProducts() {
+        const minPrice = minPriceInput.value ? parseInt(minPriceInput.value) : 0;
+        const maxPrice = maxPriceInput.value ? parseInt(maxPriceInput.value) : Infinity;
+        
+        let visibleCount = 0;
+        
+        productCards.forEach(card => {
+          const price = getPrice(card);
+          
+          if (price >= minPrice && price <= maxPrice) {
+            card.style.display = 'flex';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+        
+        // Show/hide no results message
+        if (visibleCount === 0) {
+          noResultsDiv.style.display = 'block';
+        } else {
+          noResultsDiv.style.display = 'none';
+        }
+      }
+      
+      // Function to reset filters
+      function resetFilters() {
+        minPriceInput.value = '';
+        maxPriceInput.value = '';
+        
+        productCards.forEach(card => {
+          card.style.display = 'flex';
+        });
+        
+        noResultsDiv.style.display = 'none';
+        
+        // Reset sort to default
+        sortSelect.value = 'default';
+        sortProducts('default');
+      }
+      
+      // Event listeners
+      sortSelect.addEventListener('change', function() {
+        sortProducts(this.value);
+      });
+      
+      applyFilterBtn.addEventListener('click', filterProducts);
+      
+      resetFilterBtn.addEventListener('click', resetFilters);
+      
+      // Allow pressing Enter in price inputs to apply filter
+      [minPriceInput, maxPriceInput].forEach(input => {
+        input.addEventListener('keypress', function(e) {
+          if (e.key === 'Enter') {
+            filterProducts();
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
